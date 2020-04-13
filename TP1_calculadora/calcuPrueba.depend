@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1586456337 source:z:\software\code blocks\c projects\calcuprueba\main.c
+	"funcionesCalcu.h"
+
+1586456241 z:\software\code blocks\c projects\calcuprueba\funcionescalcu.h
+	<stdio.h>
+	<stdlib.h>
+	"funcionesCalcu.c"
+
+1586456388 z:\software\code blocks\c projects\calcuprueba\funcionescalcu.c
+	"funcionesCalcu.h"
+	<stdio.h>
+
