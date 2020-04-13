@@ -3,16 +3,29 @@
 
 int getInt(char text[])
 {
-    int num;
-    fflush(stdin);
-    printf("%s",text);
-    scanf("%d", &num);
-    printf("\n",num);
-    return num;
+    int validacion;
+    float num;
+    do{
+        fflush(stdin);
+        printf("%s",text);
+        scanf("%f", &num);
+        printf("\n");
+        validacion = validarInt(num);
+        if(validacion == 0){
+            printf("Error: debe ingresar un numero entero\n");
+        }
+    }while(!validacion);
+    return (int)num;
 }
 
-int validarInt(int a){
-    int validado = 0;
+int validarInt(float num)
+{
+    int aux = (int)num;
+    num -= aux;
+    if(num == 0)
+    {
+        return 1;
+    }
     return 0;
 }
 

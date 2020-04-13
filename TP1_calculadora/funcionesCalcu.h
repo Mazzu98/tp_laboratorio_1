@@ -4,12 +4,16 @@
 #include <stdlib.h>
 
 int getInt(char[]);
-/** \brief ingresa un numero por teclado
+/** \brief ingresa un numero por teclado y valida que sea entero
  *  \param  recive un string con el texto que se desea mostrar (char[])
  *  \return devuelve el entero ingresado
  */
 
-int validarInt(int a);
+int validarInt(float a);
+/** \brief valida si es entero el numero
+ *  \param  recive un float
+ *  \return devuelve 1 si es un entero y 0 si es decimal
+ */
 
 void menuPrint(int , int, int, int );
 /** \brief Imprime el menu de la calculadora, teniendo en cuenta si ya se ingresó a o b
