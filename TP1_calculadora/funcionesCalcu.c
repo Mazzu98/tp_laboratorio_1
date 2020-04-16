@@ -68,13 +68,10 @@ int restar(int a,int b)
 
 float dividir(int a,int b)
 {
-    float result;
+    float result = 0;
     if(b!=0)
     {
         result = a/(float)b;
-    }else
-    {
-        result = 0.0;
     }
      return result;
 }
@@ -99,7 +96,7 @@ void printResult(int a,int b,int suma,int resta,float div,int multi,int facA,int
 {
     printf("a) El resultado de %d+%d es: %d\n",a,b,suma);
     printf("b) El resultado de %d-%d es: %d\n",a,b,resta);
-    if(div == 0.0)
+    if(b == 0)
     {
         printf("c) No es posible dividir por 0\n");
     }else
