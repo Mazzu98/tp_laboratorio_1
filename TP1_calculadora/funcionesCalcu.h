@@ -1,5 +1,3 @@
-#ifndef FUNCIONESCALCU_H_INCLUDED
-#define FUNCIONESCALCU_H_INCLUDED
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -70,5 +68,3 @@ void printResult(int,int,int,int,float,int,int,int);
  *  \return no devuelve nada
  */
 
-#include "funcionesCalcu.c"
-#endif // FUNCIONESCALCU_H_INCLUDED

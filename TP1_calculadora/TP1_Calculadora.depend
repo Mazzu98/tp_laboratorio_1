@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1588895010 source:z:\software\code blocks\c projects\tp1_calculadora\funcionescalcu.c
+	"funcionesCalcu.h"
+
+1588894986 z:\software\code blocks\c projects\tp1_calculadora\funcionescalcu.h
+	<stdio.h>
+	<stdlib.h>
+
+1588894975 source:z:\software\code blocks\c projects\tp1_calculadora\main.c
+	"funcionesCalcu.h"
+

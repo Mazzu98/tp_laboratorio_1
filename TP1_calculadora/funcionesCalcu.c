@@ -1,5 +1,4 @@
 #include "funcionesCalcu.h"
-#include <stdio.h>
 
 int getInt(char text[])
 {
