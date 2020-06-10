@@ -10,36 +10,26 @@
 int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
 {
     FILE* archivo;
+    int ret;
+
     archivo = fopen(path,"r");
-    if(archivo != NULL || pArrayListEmployee != NULL)
-    {
-        parser_EmployeeFromText(archivo,pArrayListEmployee);
-        fclose(archivo);
-        return 1;
-    }
-    else
-    {
-      return 0;
-    }
+    ret = parser_EmployeeFromText(archivo,pArrayListEmployee);
+    fclose(archivo);
+
+    return ret;
 }
 
 
 int controller_loadFromBinary(char* path, LinkedList* pArrayListEmployee)
 {
-
     FILE* archivo;
-
     archivo = fopen(path,"rb");
-    if(archivo != NULL)
-    {
-        parser_EmployeeFromBinary(archivo,pArrayListEmployee);
-        fclose(archivo);
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    int ret;
+
+    ret = parser_EmployeeFromBinary(archivo,pArrayListEmployee);
+    fclose(archivo);
+
+    return ret;
 }
 
 
