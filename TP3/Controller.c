@@ -35,6 +35,7 @@ int controller_loadFromBinary(char* path, LinkedList* pArrayListEmployee)
 
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
+    int ret;
     if(pArrayListEmployee != NULL)
     {
         Employee* e1;
@@ -50,18 +51,23 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
         ll_add(pArrayListEmployee,e1);
 
         system("cls");
-        return 1;
+        ret = 1;
     }
     else
     {
-        return 0;
+        ret = 0;
     }
+
+    return ret;
 }
 
 
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
-    int id,index,opcion;
+    int id;
+    int index;
+    int opcion;
+    int ret = 0;
     char auxCadena[15];
     Employee* aux;
     if(pArrayListEmployee != NULL)
@@ -87,17 +93,10 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
                 }
             }while(opcion < 1 || opcion > 4);
             system("cls");
-            return 1;
-        }
-        else
-        {
-            return 0;
+            ret = 1;
         }
     }
-    else
-    {
-        return 0;
-    }
+    return ret;
 }
 
 
@@ -105,7 +104,7 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
     int id;
     int index;
-    int ret = 1;
+    int ret = 0;
 
     if(pArrayListEmployee != NULL)
     {
@@ -114,24 +113,17 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
         if(index != -1)
         {
             ll_remove(pArrayListEmployee,index);
+            ret = 1;
         }
-        else
-        {
-            ret = 0;
-        }
-    }
-    else
-    {
-        ret = 0;
     }
     return ret;
-
 }
 
 
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
     int len;
+    int ret = 0;
     Employee* aux;
     if(pArrayListEmployee != NULL)
     {
@@ -142,12 +134,10 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
             aux =(Employee*) ll_get(pArrayListEmployee, i);
             employee_show(*aux);
         }
-        return 1;
+        ret = 1;
     }
-    else
-    {
-        return 0;
-    }
+
+    return ret;
 }
 
 
@@ -156,8 +146,10 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
     Employee* emp1,*emp2,aux;
     int i,j;
     int len;
+    int ret = 0;
     if(pArrayListEmployee != NULL)
     {
+        printf("Ordenando...");
         len = ll_len(pArrayListEmployee);
         for(i=0;i<len-1;i++)
         {
@@ -173,33 +165,38 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
                 }
             }
         }
-        return 1;
+        ret = 1;
     }
-    else
-    {
-        return 0;
-    }
+
+    return ret;
 }
 
 
 int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
 {
     FILE* pArchivo;
-    int i,len;
+    int i;
+    int len;
+    int ret = 0;
     Employee *aux;
     if(pArrayListEmployee != NULL)
     {
         len = ll_len(pArrayListEmployee);
         pArchivo = fopen(path,"w");
-        fprintf(pArchivo,"id,nombre,horasTrabajadas,sueldo\n");
-        for(i=0;i<len;i++)
+        if(pArchivo != NULL)
         {
-            aux = ll_get(pArrayListEmployee,i);
-            fprintf(pArchivo,"%d,%s,%d,%d\n",aux->id,aux->nombre,aux->horasTrabajadas,aux->sueldo);
+            fprintf(pArchivo,"id,nombre,horasTrabajadas,sueldo\n");
+            for(i=0;i<len;i++)
+            {
+                aux = ll_get(pArrayListEmployee,i);
+                fprintf(pArchivo,"%d,%s,%d,%d\n",aux->id,aux->nombre,aux->horasTrabajadas,aux->sueldo);
+            }
+            fclose(pArchivo);
+            ret = 1;
         }
-        fclose(pArchivo);
     }
-    return 1;
+
+    return ret;
 }
 
 
@@ -207,19 +204,25 @@ int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
 {
     FILE* pArchivo;
     int i,len;
+    int ret = 0;
     Employee *aux;
     if(pArrayListEmployee != NULL)
     {
         len = ll_len(pArrayListEmployee);
         pArchivo = fopen(path,"wb");
-        for(i=0;i<len;i++)
+        if(pArchivo != NULL)
         {
-            aux = ll_get(pArrayListEmployee,i);
-            fwrite(aux,sizeof(Employee),1,pArchivo);
+            for(i=0;i<len;i++)
+            {
+                aux = ll_get(pArrayListEmployee,i);
+                fwrite(aux,sizeof(Employee),1,pArchivo);
+            }
+            fclose(pArchivo);
+            ret = 1;
         }
-        fclose(pArchivo);
     }
-    return 1;
+
+    return ret;
 }
 
 void controller_printMenu()

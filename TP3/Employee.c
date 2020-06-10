@@ -22,103 +22,98 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
 
 int employee_setNombre(Employee* this,char* nombre)
 {
+    int ret = 0;
+
     if(this != NULL)
     {
         strcpy(this->nombre,nombre);
-        return 1;
+        ret = 1;
     }
-    else
-    {
-        return 0;
-    }
+
+    return ret;
 }
 
 int employee_getNombre(Employee* this,char* nombre)
 {
+    int ret = 0;
+
     if(this != NULL)
     {
         strcpy(nombre,this->nombre);
-        return 1;
+        ret = 1;
     }
-    else
-    {
-        return 0;
-    }
+
+    return ret;
 }
 
 int employee_setSueldo(Employee* this,int sueldo)
 {
+    int ret = 0;
+
     if(this != NULL)
     {
         this->sueldo = sueldo;
-        return 1;
+        ret = 1;
     }
-    else
-    {
-        return 0;
-    }
+
+    return ret;
 }
 int employee_getSueldo(Employee* this,int* sueldo)
 {
+    int ret = 0;
     if(this != NULL)
     {
         *sueldo = this->sueldo;
-        return 1;
+        ret = 1;
     }
-    else
-    {
-        return 0;
-    }
+
+    return ret;
 }
 
 int employee_setId(Employee* this,int id)
 {
+    int ret = 0;
     if(this != NULL)
     {
         this->id = id;
-        return 1;
+        ret = 1;
     }
-    else
-    {
-        return 0;
-    }
+
+    return ret;
 }
 int employee_getId(Employee* this,int* id)
 {
+    int ret = 0;
     if(this != NULL)
     {
         *id = this->id;
-        return 1;
+        ret = 1;
     }
-    else
-    {
-        return 0;
-    }
+
+    return ret;
 }
 
 int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
 {
+    int ret = 0;
     if(this != NULL)
     {
         this->horasTrabajadas = horasTrabajadas;
-        return 1;
+        ret = 1;
     }
-    else
-    {
-        return 0;
-    }
+
+    return ret;
 }
 int employee_getHorasTrabajadas(Employee* this,int* horasTrabajdas)
 {
+    int ret = 0;
     if(this != NULL)
     {
         *horasTrabajdas = this->horasTrabajadas;
-        return 1;
+        ret = 1;
     }
-    else
-    {
-        return 0;
-    }
+
+    return ret;
 }
 
 int employee_CompareByName(Employee* e1, Employee* e2)
