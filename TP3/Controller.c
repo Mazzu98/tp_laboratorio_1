@@ -35,7 +35,7 @@ int controller_loadFromBinary(char* path, LinkedList* pArrayListEmployee)
 
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
-    int ret;
+    int ret = 0;
     if(pArrayListEmployee != NULL)
     {
         Employee* e1;
@@ -53,11 +53,6 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
         system("cls");
         ret = 1;
     }
-    else
-    {
-        ret = 0;
-    }
-
     return ret;
 }
 
@@ -112,10 +107,10 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
         index = findEmployeeById(pArrayListEmployee,id);
         if(index != -1)
         {
-            ll_remove(pArrayListEmployee,index);
-            ret = 1;
+            ret = !ll_remove(pArrayListEmployee,index);
         }
     }
+    system("cls");
     return ret;
 }
 
@@ -143,31 +138,49 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
-    Employee* emp1,*emp2,aux;
-    int i,j;
-    int len;
-    int ret = 0;
-    if(pArrayListEmployee != NULL)
+    int ret = 1;
+    int opcion;
+    printf("Ordenar:\n1. Por nombre\n2. Por id\n");
+    do
     {
-        printf("Ordenando...");
-        len = ll_len(pArrayListEmployee);
-        for(i=0;i<len-1;i++)
+        opcion = getInt("Ingresar opcion:");
+        if(opcion == 1)
         {
-            for(j=i+1;j<len;j++)
+            printf("Ordenar:\n1. A-Z\n2. Z-A\n");
+            opcion = getInt("Ingresar opcion:");
+            if(opcion == 1)
             {
-                emp1 = ll_get(pArrayListEmployee,i);
-                emp2 = ll_get(pArrayListEmployee,j);
-                if(strcmp(emp1->nombre,emp2->nombre) > 0)
-                {
-                    aux = *emp1;
-                    *emp1 = *emp2;
-                    *emp2 = aux;
-                }
+                printf("Ordenando...");
+                ll_sort(pArrayListEmployee,&employee_CompareByName,1);
+            }
+            else if (opcion == 2)
+            {
+                printf("Ordenando...");
+                ll_sort(pArrayListEmployee,&employee_CompareByName,0);
             }
         }
-        ret = 1;
-    }
-
+        else if (opcion == 2)
+        {
+            printf("Ordenar:\n1. Acendente\n2. Decendente\n");
+            opcion = getInt("Ingresar opcion:");
+            if(opcion == 1)
+            {
+                printf("Ordenando...");
+                ll_sort(pArrayListEmployee,&employee_CompareById,1);
+            }
+            else if (opcion == 2)
+            {
+                printf("Ordenando...");
+                ll_sort(pArrayListEmployee,&employee_CompareById,0);
+            }
+        }
+        else
+        {
+            printf("Opcion invalida:\n");
+        }
+    }while(opcion < 1 || opcion > 2);
+        ll_sort(pArrayListEmployee,&employee_CompareByName,1);
+    system("cls");
     return ret;
 }
 
@@ -221,7 +234,6 @@ int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
             ret = 1;
         }
     }
-
     return ret;
 }
 
