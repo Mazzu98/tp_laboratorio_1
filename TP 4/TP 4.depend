@@ -1,0 +1,54 @@
+# depslib dependency file v1.0
+1591484571 source:z:\software\code blocks\c projects\tp_laboratorio_1\tp 4\entradavalidada.c
+	"entradaValidada.h"
+
+1591484569 z:\software\code blocks\c projects\tp_laboratorio_1\tp 4\entradavalidada.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1593262435 source:z:\software\code blocks\c projects\tp_laboratorio_1\tp 4\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1593129594 z:\software\code blocks\c projects\tp_laboratorio_1\tp 4\linkedlist.h
+
+1593262425 source:z:\software\code blocks\c projects\tp_laboratorio_1\tp 4\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"cliente.h"
+	"parser.h"
+	"entradaValidada.h"
+	"controller.h"
+
+1593223447 source:z:\software\code blocks\c projects\tp_laboratorio_1\tp 4\cliente.c
+	"cliente.h"
+	<string.h>
+	<stdlib.h>
+	<stdio.h>
+
+1593222033 z:\software\code blocks\c projects\tp_laboratorio_1\tp 4\cliente.h
+
+1593262211 source:z:\software\code blocks\c projects\tp_laboratorio_1\tp 4\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"cliente.h"
+	"parser.h"
+
+1593127957 z:\software\code blocks\c projects\tp_laboratorio_1\tp 4\parser.h
+
+1593263484 source:z:\software\code blocks\c projects\tp_laboratorio_1\tp 4\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"cliente.h"
+	"parser.h"
+	"entradaValidada.h"
+	"controller.h"
+
+1593222033 z:\software\code blocks\c projects\tp_laboratorio_1\tp 4\controller.h
+
