@@ -11,7 +11,9 @@ int main()
 {
     int opcion;
     int id=0;
+    int success;
     LinkedList* lista = ll_newLinkedList();
+    LinkedList* lista2= NULL;
 
     do
     {
@@ -27,21 +29,26 @@ int main()
                 break;
             case 4: controller_bajaCliente(lista);
                 break;
-            case 5: controller_mostrarLista(lista);
+            case 5: controller_insertarCliente(lista,&id);
                 break;
-            case 6: controller_sortCliente(lista);
+            case 6: controller_mostrarLista(lista);
                 break;
-            case 7: controller_escribirBinario(lista,"data.bin");
+            case 7: controller_sortCliente(lista);
                 break;
+            case 8: controller_escribirBinario(lista,"data.bin");
+                break;
+            case 9: lista2 = ll_clone(lista);
+                break;
+            case 10: success = controller_verificarClonacion(lista,lista2);
+                     succes(success,"No se clonó","Clonado");
+                break;
+            case 11: ll_deleteLinkedList(lista);
+                    lista=NULL;
+                    break;
             default:
                 break;
         }
-    }while(opcion != 8);
-
-
-
-    //ll_deleteLinkedList(lista);
-    //controller_mostrarLista(lista);
+    }while(opcion != 12);
 
     return 0;
 }

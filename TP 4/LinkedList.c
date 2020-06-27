@@ -308,8 +308,9 @@ int ll_deleteLinkedList(LinkedList* this)
 
     if(this != NULL)
     {
+
         ll_clear(this);
-        //free(this);
+        free(this);
         this = NULL;
         ret = 0;
     }

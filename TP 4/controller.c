@@ -12,10 +12,14 @@ void printMenu()
     printf("2. Alta cliente\n");
     printf("3. Modificar cliente\n");
     printf("4. Baja cliente\n");
-    printf("5. Mostrar lista\n");
-    printf("6. Ordenar lista\n");
-    printf("7. Guardar en archivo binario\n");
-    printf("8. Salir\n");
+    printf("5. Insertar cliente\n");
+    printf("6. Mostrar lista\n");
+    printf("7. Ordenar lista\n");
+    printf("8. Guardar en archivo binario\n");
+    printf("9. Clonar lista\n");
+    printf("10. Verificar clonacion\n");
+    printf("11. Eliminar lista\n");
+    printf("12. Salir\n");
 }
 
 int controller_leerArchivoBin(LinkedList* lista,char* path)
@@ -112,6 +116,7 @@ void controller_mostrarLista(LinkedList* lista)
 {
     int i;
     eCliente* cliente;
+
     if(lista != NULL)
     {
         printf("  id       Nombre      Localidad\n");
@@ -206,12 +211,30 @@ int controller_findById(LinkedList* lista,int id)
     return ret;
 }
 
-int controller_insertarCliente(LinkedList* lista,int index, eCliente* cliente )
+int controller_insertarCliente(LinkedList* lista,int* newId)
 {
+    eCliente* cliente;
+    char nombre[51];
+    char localidad[51];
     int ret = 1;
+    int index;
     if(lista != NULL)
     {
-        ret = ll_push(lista,index,cliente);
+        cliente = newCliente();
+        if(cliente != NULL)
+        {
+            index = getInt("En que posicion desea Insertar?");
+            if(index > -1 && index <ll_len(lista))
+            {
+                (*newId) = (*newId) + 1;
+                cliente_setId(cliente,*newId);
+                getString("Ingresar nombre: ",nombre);
+                cliente_setNombre(cliente,nombre);
+                getString("Ingresar localidad: ",localidad);
+                cliente_setLocalidad(cliente,localidad);
+                ret = ll_push(lista,index,cliente);
+            }
+        }
     }
     return ret;
 }
@@ -237,3 +260,24 @@ int controller_escribirBinario(LinkedList* lista,char* path)
     return ret;
 }
 
+int controller_verificarClonacion(LinkedList* lista1,LinkedList* lista2)
+{
+    int ret = -1;
+    if(lista1 != NULL && lista2 != NULL)
+    {
+        ret = ll_containsAll(lista1,lista2);
+    }
+    return ret;
+}
+
+void succes(int ret,char succes[],char error[])
+{
+    if(ret == 0)
+    {
+        printf("%s\n",succes);
+    }
+    else if(ret == 1)
+    {
+        printf("%s\n",error);
+    }
+}

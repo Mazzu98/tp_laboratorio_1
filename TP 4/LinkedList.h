@@ -43,7 +43,7 @@ int ll_add(LinkedList* this, void* pElement);
 void* ll_get(LinkedList* this, int index);
 int ll_remove(LinkedList* this,int index);
 int ll_clear(LinkedList* this);
-int ll_deleteLinkedList(LinkedList* this);
+int ll_deleteLinkedList(LinkedList*);
 int ll_indexOf(LinkedList* this, void* pElement);
 int ll_isEmpty(LinkedList* this);
 
@@ -53,8 +53,8 @@ int ll_set(LinkedList* this, int index,void* pElement);
 int ll_push(LinkedList* this, int index, void* pElement);
 void* ll_pop(LinkedList* this,int index);
 
-int ll_contains(LinkedList* this, void* pElement);
-int ll_containsAll(LinkedList* this,LinkedList* this2);
+int ll_contains(LinkedList*, void* );
+int ll_containsAll(LinkedList*,LinkedList*);
 
 LinkedList* ll_subList(LinkedList* this,int from,int to);
 LinkedList* ll_clone(LinkedList* this);
