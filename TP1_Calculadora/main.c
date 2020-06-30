@@ -3,9 +3,17 @@
 
 int main()
 {
-    int a,b,selected=0;
-    int aFlag=0,bFlag=0,calculoFlag=0;
-    int suma,resta,multiplicacion,factorialA,factorialB;
+    int a;
+    int b;
+    int selected = 0;
+    int aFlag = 0;
+    int bFlag = 0;
+    int calculoFlag = 0;
+    int suma;
+    int resta;
+    int multiplicacion;
+    int factorialA;
+    int factorialB;
     float division;
 
     do
@@ -64,7 +72,7 @@ int main()
             case 5:
                     break;
             default:
-                    printf("Debe ingresar una opcion valida\n");
+                    printf("Debe ingresar una opcion valida...\n");
                     break;
         }
 
