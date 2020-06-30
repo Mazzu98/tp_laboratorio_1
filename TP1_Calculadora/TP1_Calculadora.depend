@@ -9,13 +9,22 @@
 1588894975 source:z:\software\code blocks\c projects\tp1_calculadora\main.c
 	"funcionesCalcu.h"
 
-1588895010 source:z:\software\code blocks\c projects\tp_laboratorio_1\tp1_calculadora\funcionescalcu.c
+1593544245 source:z:\software\code blocks\c projects\tp_laboratorio_1\tp1_calculadora\funcionescalcu.c
 	"funcionesCalcu.h"
 
-1588894986 z:\software\code blocks\c projects\tp_laboratorio_1\tp1_calculadora\funcionescalcu.h
+1593544212 z:\software\code blocks\c projects\tp_laboratorio_1\tp1_calculadora\funcionescalcu.h
 	<stdio.h>
 	<stdlib.h>
 
-1588894975 source:z:\software\code blocks\c projects\tp_laboratorio_1\tp1_calculadora\main.c
+1593544229 source:z:\software\code blocks\c projects\tp_laboratorio_1\tp1_calculadora\main.c
 	"funcionesCalcu.h"
+	"entradaValidada.h"
+
+1589239160 source:z:\software\code blocks\c projects\tp_laboratorio_1\tp1_calculadora\entradavalidada.c
+	"entradaValidada.h"
+
+1593544152 z:\software\code blocks\c projects\tp_laboratorio_1\tp1_calculadora\entradavalidada.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
 

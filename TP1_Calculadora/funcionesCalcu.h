@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int getInt(char[]);
+//int getInt(char[]);
 /** \brief ingresa un numero por teclado y valida que sea entero
  *  \param  recive un string con el texto que se desea mostrar (char[])
  *  \return devuelve el entero ingresado
  */
 
-int validarInt(float a);
+//int validarInt(float a);
 /** \brief valida si es entero el numero
  *  \param  recive un float
  *  \return devuelve 1 si es un entero y 0 si es decimal

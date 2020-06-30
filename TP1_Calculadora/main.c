@@ -1,4 +1,5 @@
 #include "funcionesCalcu.h"
+#include "entradaValidada.h"
 
 int main()
 {

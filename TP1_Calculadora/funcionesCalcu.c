@@ -1,33 +1,5 @@
 #include "funcionesCalcu.h"
 
-int getInt(char text[])
-{
-    int validacion;
-    float num;
-    do{
-        fflush(stdin);
-        printf("%s",text);
-        scanf("%f", &num);
-        printf("\n");
-        validacion = validarInt(num);
-        if(validacion == 0){
-            printf("Error: debe ingresar un numero entero\n");
-        }
-    }while(!validacion);
-    return (int)num;
-}
-
-int validarInt(float num)
-{
-    int aux = (int)num;
-    num -= aux;
-    if(num == 0)
-    {
-        return 1;
-    }
-    return 0;
-}
-
 void menuPrint(int a, int b,int aFlag,int bFlag)
 {
     printf("\n");
@@ -82,7 +54,8 @@ int multiplicar(int a,int b)
 
 int factorial(int a)
 {
-    int i,factorial = 1;
+    int i;
+    int factorial = 1;
 
     for(i=a;i>0;i--)
     {
@@ -95,6 +68,7 @@ void printResult(int a,int b,int suma,int resta,float div,int multi,int facA,int
 {
     printf("a) El resultado de %d+%d es: %d\n",a,b,suma);
     printf("b) El resultado de %d-%d es: %d\n",a,b,resta);
+
     if(b == 0)
     {
         printf("c) No es posible dividir por 0\n");
